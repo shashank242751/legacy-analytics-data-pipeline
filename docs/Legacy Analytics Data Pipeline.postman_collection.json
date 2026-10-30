@@ -1,0 +1,151 @@
+{
+  "info": {
+    "_postman_id": "4d15e6b7-cf97-4560-b4b9-2e7458368a72",
+    "name": "Legacy Analytics Data Pipeline",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33837027",
+    "_collection_link": "https://go.postman.co/collection/33837027-4d15e6b7-cf97-4560-b4b9-2e7458368a72?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Bigquery",
+      "item": [
+        {
+          "name": "health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/bigquery/health",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "bigquery",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/bigquery/records?year=2026&month=10&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "bigquery",
+                "records"
+              ],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2026"
+                },
+                {
+                  "key": "month",
+                  "value": "10"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Postgres",
+      "item": [
+        {
+          "name": "health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/postgres/health",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "postgres",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/postgres/records?limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "postgres",
+                "records"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "event trigger",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/postgres/sync?year=2026&month=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "postgres",
+                "sync"
+              ],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2026"
+                },
+                {
+                  "key": "month",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

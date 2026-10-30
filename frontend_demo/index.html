@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GA4 + BigQuery POC Test Site</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google tag (gtag.js) — key loaded from .env at deploy/build time -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7653XPQQZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N7653XPQQZ', { debug_mode: true });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>GA4 Analytics Test Portal</h1>
+      <p class="subtitle">Proof of Concept: Event Collection for BigQuery & NestJS</p>
+      <nav>
+        <a href="#home" class="nav-link" data-page="home">Home</a>
+        <a href="#features" class="nav-link" data-page="features">Features</a>
+        <a href="#about" class="nav-link" data-page="about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>1. Trigger Test Events</h2>
+        <p>Click these buttons to test custom and standard events sent to GA4:</p>
+        <div class="button-grid">
+          <button id="btn-cta-primary" class="btn btn-primary" data-action="signup_click">
+            Sign Up (Custom Event: <code>button_click</code>)
+          </button>
+          <button id="btn-cta-secondary" class="btn btn-outline" data-action="explore_docs">
+            Explore Docs (Custom Event: <code>button_click</code>)
+          </button>
+          <button id="btn-custom-purchase" class="btn btn-success" data-action="mock_checkout">
+            Trigger Mock Action (Custom Event: <code>poc_action</code>)
+          </button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>3. Event Log (Client-side dispatch confirmation)</h2>
+        <div id="event-log" class="log-box">
+          <p class="log-entry info">Ready. Actions you take will be logged here.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
