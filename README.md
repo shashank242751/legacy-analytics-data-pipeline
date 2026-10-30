@@ -83,7 +83,26 @@ PG_SCHEMA=analytics_kasturagi
 
 ---
 
-### 4. Installation & Running
+### 4. Remote Database SSH Port Forward Tunnel
+
+If the legacy PostgreSQL server is running inside a private network or remote host (e.g. `119.82.96.69`), establish an **SSH port forwarding tunnel** in a separate terminal before starting the backend:
+
+```bash
+# In a separate terminal or command prompt, run:
+ssh -N -L 15432:127.0.0.1:5432 <ssh-user>@<remote-server-ip>
+
+# Example:
+ssh -N -L 15432:127.0.0.1:5432 nichiuser@119.82.96.69
+```
+
+- `-N`: Do not execute remote commands (forward ports only).
+- `-L 15432:127.0.0.1:5432`: Forwards local port `15432` to the remote server's PostgreSQL port `5432`.
+- Keep this terminal window open while running tests or the ETL service.
+- Set `PG_HOST=127.0.0.1` and `PG_PORT=15432` in your `.env`.
+
+---
+
+### 5. Installation & Running
 
 ```bash
 # 1. Install dependencies

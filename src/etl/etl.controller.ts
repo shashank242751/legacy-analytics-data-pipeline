@@ -2,7 +2,7 @@ import { Controller, Get, Post, Query } from '@nestjs/common';
 import { EtlService } from './etl.service';
 import { DatabaseService } from '../database/database.service';
 
-@Controller('etl')
+@Controller(['postgres', 'etl'])
 export class EtlController {
   constructor(
     private readonly etlService: EtlService,

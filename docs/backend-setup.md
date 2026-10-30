@@ -35,6 +35,16 @@ PG_SCHEMA=analytics_kasturagi
 
 > See [`docs/gcp-bigquery-setup.md`](./gcp-bigquery-setup.md) for the full step-by-step guide to generate the Service Account key.
 
+### SSH Port Forwarding Tunnel for Remote PostgreSQL
+When the target PostgreSQL database is located on a private remote server (e.g. `119.82.96.69`), establish an SSH tunnel in a separate terminal:
+```bash
+ssh -N -L 15432:127.0.0.1:5432 <ssh-user>@<remote-server-ip>
+
+# Example:
+ssh -N -L 15432:127.0.0.1:5432 nichiuser@119.82.96.69
+```
+This forwards local port `15432` to the remote PostgreSQL port `5432`. Configure `.env` with `PG_HOST=127.0.0.1` and `PG_PORT=15432`.
+
 ---
 
 ## 2. Structure & Example of `gcp-key.json` (Service Account Key)
